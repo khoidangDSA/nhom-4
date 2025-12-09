@@ -1,0 +1,163 @@
+.body1{
+    background-color: rgb(50, 51, 49);
+    color: rgb(242, 255, 0);
+}
+.container{
+    text-align: center;
+    
+}
+
+/* 1. Thiết lập Flex Container (Không thay đổi) */
+.row-flex {
+    display: flex; 
+    gap: 20px; 
+    padding: 20px;
+    background-color: #000000;
+}
+
+/* 2. Thiết lập cho thẻ liên kết cha (Thẻ mới là Flex Item) */
+/* 2. Thiết lập cho thẻ liên kết cha */
+.full-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; 
+    flex: 1; 
+    
+    /* THUỘC TÍNH TRANG TRÍ ĐƯỢC CHUYỂN TỪ .column SANG ĐÂY */
+    padding: 15px; /* Thêm padding */
+    background-color: rgb(17, 60, 93); /* Thêm màu nền trắng */
+    border: 1px solid #020000; /* Thêm viền */
+    border-radius: 5px; /* Bo góc */
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+/* 3. Thiết lập cho các cột (Chỉ còn thuộc tính trang trí) */
+/* 3. Thiết lập cho các cột (Giảm thuộc tính) */
+.column {
+    /* Xóa padding, background, border, border-radius */
+    width: 100%; 
+    height: 100%;
+    /* Giữ lại các thuộc tính layout nếu cần, nhưng các thuộc tính trên đã được xóa */
+    /* Nếu bạn có nội dung như icon, bạn có thể giữ CSS cho chúng ở đây */
+}
+
+/* 4. Hiệu ứng Hover */
+/* Khi di chuột vào thẻ <a>, áp dụng hiệu ứng cho thẻ div.column bên trong */
+.full-card-link:hover .column {
+    transform: translateY(-5px); /* Dịch chuyển nhẹ lên */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Tạo bóng */
+    border-color: #2e3245; /* Đổi màu viền */
+}
+/* Kiểu dáng chung cho bảng */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse; /* Gộp các đường viền đơn */
+    margin-top: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Kiểu dáng cho tiêu đề bảng */
+.schedule-table th {
+    background-color: #2e6e66; /* Màu nền xanh đậm */
+    color: white;
+    padding: 12px 8px;
+    border: 1px solid #2e6e66;
+    text-transform: uppercase;
+}
+
+/* Kiểu dáng cho các ô dữ liệu */
+.schedule-table td {
+    padding: 10px 8px;
+    border: 1px solid #ddd;
+    vertical-align: middle; /* Căn giữa nội dung theo chiều dọc */
+}
+
+/* Tô màu nền cho hàng thời gian */
+.schedule-table td:first-child {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Các màu sắc khác nhau cho từng loại môn học/hoạt động */
+.schedule-table .math {
+    background-color: #e0f2f7; /* Xanh nhạt */
+}
+.schedule-table .it {
+    background-color: #e8f5e9; /* Xanh lá nhạt */
+}
+.schedule-table .english {
+    background-color: #fff3e0; /* Cam nhạt */
+}
+.schedule-table .self-study {
+    background-color: #f3e5f5; /* Tím nhạt */
+}
+.schedule-table .club {
+    background-color: #ffebee; /* Hồng nhạt */
+}
+.schedule-table .hobby {
+    background-color: #e3f2fd; /* Xanh da trời nhạt */
+}
+.schedule-table .lunch {
+    background-color: #dcedc8; /* Xanh lá cây */
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Hiệu ứng khi di chuột qua các ô */
+.schedule-table td:hover {
+    background-color: #f0f0f0;
+}
+
+/* Đảm bảo bảng hiển thị tốt trên thiết bị nhỏ */
+@media (max-width: 768px) {
+    .schedule-table {
+        font-size: 0.8em;
+        display: block;
+        overflow-x: auto; /* Cho phép cuộn ngang */
+        white-space: nowrap;
+    }
+    .schedule-table thead, .schedule-table tbody, .schedule-table th, .schedule-table td, .schedule-table tr {
+        display: block;
+    }
+    .schedule-table th, .schedule-table td {
+        white-space: normal;
+    }
+}
+
+/* Sử dụng lại kiểu dáng chung của .hobby-card đã tạo trước đó */
+
+/* Màu nền đặc trưng cho sở thích Đá bóng */
+.hobby-card.sports-bg {
+    background-color: #e8f5ee; /* Xanh lá cây rất nhạt (Gần màu sân cỏ) */
+    border-left: 5px solid #4caf50;
+}
+
+/* Màu nền đặc trưng cho sở thích Ăn uống */
+.hobby-card.food-bg {
+    background-color: #fff8e1; /* Vàng kem nhạt (Gần màu ấm của món ăn) */
+    border-left: 5px solid #fbc02d;
+}
+
+/* Đảm bảo icon nổi bật */
+.hobby-card.sports-bg .hobby-icon {
+    color: #4caf50; /* Xanh lá cây */
+}
+.hobby-card.food-bg .hobby-icon {
+    color: #fbc02d; /* Vàng đậm */
+}
+
+/* Sử dụng lại CSS cho list item (fas fa-check-circle) từ code cũ */
+.hobby-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+.hobby-content ul li {
+    margin-bottom: 5px;
+    color: #555;
+}
+.hobby-content ul li i {
+    color: #2e6e66; /* Giữ màu xanh chung */
+    margin-right: 8px;
+}
